@@ -6,6 +6,7 @@ date_default_timezone_set('Asia/Tokyo');
 // URL/ディレクトリ設定
 define('HOME_URL', '/twitter%20board/');
 
+
 ///////////////////////////////////////
 // ツイート一覧
 ///////////////////////////////////////
@@ -102,7 +103,7 @@ function convertToDayTimeAgo(string $datetime)
     <link rel="icon" href="<?php echo HOME_URL; ?>Views/img/logo-twitterblue.svg">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link href="<?php echo HOME_URL; ?>style.css" rel="stylesheet">
+    <link href="<?php echo HOME_URL; ?>Views/css/style.css" rel="stylesheet">
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous" defer></script>
     <!-- JavaScript Bundle with Popper -->
@@ -160,7 +161,7 @@ function convertToDayTimeAgo(string $datetime)
                         <div class="tweet">
                             <div class="user">
                                 <a href="profile.php?user_id=<?php echo $view_tweet['user_id']; ?>">
-                                    <img src="<?php echo HOME_URL; ?>Views/img_uploaded/user/<?php echo $view_tweet['user_image_name']; ?>" alt="">
+                                    <img src="<?php echo HOME_URL; ?>Views/img_uploaded/tweet/<?php echo $view_tweet['user_image_name']; ?>" alt="">
                                 </a>
                             </div>
                             <div class="content">
