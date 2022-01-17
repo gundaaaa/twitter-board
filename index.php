@@ -65,7 +65,7 @@ function convertToDayTimeAgo(string $datetime)
     $unix = strtotime($datetime);
     $now = time();
     $diff_sec = $now - $unix;
- 
+
     if ($diff_sec < 60) {
         $time = $diff_sec;
         $unit = '秒前';
@@ -79,7 +79,7 @@ function convertToDayTimeAgo(string $datetime)
         $time = $diff_sec / 86400;
         $unit = '日前';
     } else {
- 
+
         if (date('Y') !== date('Y', $unix)) {
             $time = date('Y年n月j日', $unix);
         } else {
@@ -87,10 +87,10 @@ function convertToDayTimeAgo(string $datetime)
         }
         return $time;
     }
- 
+
     return (int)$time . $unit;
 }
- 
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -171,11 +171,11 @@ function convertToDayTimeAgo(string $datetime)
                                     </a>
                                 </div>
                                 <p><?php echo $view_tweet['tweet_body'] ?></p>
- 
+
                                 <?php if (isset($view_tweet['tweet_image_name'])) : ?>
                                     <img src="<?php echo HOME_URL; ?>Views/img_uploaded/tweet/<?php echo $view_tweet['tweet_image_name']; ?>" alt="" class="post-image">
                                 <?php endif; ?>
-           
+
 
                                 <div class="icon-list">
                                     <div class="like">
