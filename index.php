@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 // 日本時間にする
 date_default_timezone_set('Asia/Tokyo');
 // URL/ディレクトリ設定
-define('HOME_URL', '/掲示板投稿/');
+define('HOME_URL', '/twitter%20board/');
 
 ///////////////////////////////////////
 // ツイート一覧
@@ -17,7 +17,7 @@ $view_tweets = [
         'user_image_name' => 'sample-person.jpg',
         'tweet_body' => '今プログラミングをしています。',
         'tweet_image_name' => null,
-        'tweet_created_at' => '2021-07-15 14:00:00',
+        'tweet_created_at' => '2021-03-15 14:00:00',
         'like_id' => null,
         'like_count' => 0,
     ],
@@ -26,7 +26,7 @@ $view_tweets = [
         'user_name' => 'jiro',
         'user_nickname' => '次郎',
         'user_image_name' => null,
-        'tweet_body' => 'コワーキングスペースをオープンしました！',
+        'tweet_body' => 'コワーキングスペースをオープンしました',
         'tweet_image_name' => 'sample-post.jpg',
         'tweet_created_at' => '2021-03-14 14:00:00',
         'like_id' => 1,
@@ -65,7 +65,7 @@ function convertToDayTimeAgo(string $datetime)
     $unix = strtotime($datetime);
     $now = time();
     $diff_sec = $now - $unix;
-
+ 
     if ($diff_sec < 60) {
         $time = $diff_sec;
         $unit = '秒前';
@@ -79,7 +79,7 @@ function convertToDayTimeAgo(string $datetime)
         $time = $diff_sec / 86400;
         $unit = '日前';
     } else {
-
+ 
         if (date('Y') !== date('Y', $unix)) {
             $time = date('Y年n月j日', $unix);
         } else {
@@ -87,10 +87,10 @@ function convertToDayTimeAgo(string $datetime)
         }
         return $time;
     }
-
+ 
     return (int)$time . $unit;
 }
-
+ 
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -160,21 +160,22 @@ function convertToDayTimeAgo(string $datetime)
                         <div class="tweet">
                             <div class="user">
                                 <a href="profile.php?user_id=<?php echo $view_tweet['user_id']; ?>">
-                                    <img src="<?php echo HOME_URL; ?>Views/img/kyousyu.png<?php echo $view_tweet['user_image_name']; ?>" alt="">
+                                    <img src="<?php echo HOME_URL; ?>Views/img_uploaded/user/<?php echo $view_tweet['user_image_name']; ?>" alt="">
                                 </a>
                             </div>
                             <div class="content">
                                 <div class="name">
                                     <a href="profile.php?user_id=<?php echo $view_tweet['user_id']; ?>">
                                         <span class="nickname"><?php echo $view_tweet['user_nickname']; ?></span>
-                                        <span class="user-name">@<?php echo $view_tweet['user_name']; ?> ・<?php echo convertToDayTimeAgo($view_tweet['tweet_created_at']); ?></span>
+                                        <span class="user-name">@<?php echo $view_tweet['user_name']; ?> ・<?php echo $view_tweet['tweet_created_at']; ?></span>
                                     </a>
                                 </div>
                                 <p><?php echo $view_tweet['tweet_body'] ?></p>
-
+ 
                                 <?php if (isset($view_tweet['tweet_image_name'])) : ?>
                                     <img src="<?php echo HOME_URL; ?>Views/img_uploaded/tweet/<?php echo $view_tweet['tweet_image_name']; ?>" alt="" class="post-image">
                                 <?php endif; ?>
+           
 
                                 <div class="icon-list">
                                     <div class="like">
