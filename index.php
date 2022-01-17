@@ -100,7 +100,7 @@ function convertToDayTimeAgo(string $datetime)
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="<?php echo HOME_URL; ?>Views/img/logo-twitterblue.svg">
+    <link rel="icon" href="Views/img/logo-twitterblue.svg">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link href="Views/css/style.css" rel="stylesheet">
@@ -119,11 +119,12 @@ function convertToDayTimeAgo(string $datetime)
                 <ul class="nav flex-column">
                     <li class="nav-item"><a href="home.php" class="nav-link"><img src="Views/img/logo-twitterblue.svg" alt="" class="icon"></a></li>
                     <li class="nav-item"><a href="home.php" class="nav-link"><img src="Views/img/icon-home.svg" alt=""></a></li>
-                    <li class="nav-item"><a href="search.php" class="nav-link"><img src="<?php echo HOME_URL; ?>Views/img/icon-search.svg" alt=""></a></li>
-                    <li class="nav-item"><a href="notification.php" class="nav-link"><img src="<?php echo HOME_URL; ?>Views/img/icon-notification.svg" alt=""></a></li>
-                    <li class="nav-item"><a href="profile.php" class="nav-link"><img src="<?php echo HOME_URL; ?>Views/img/icon-profile.svg" alt=""></a></li>
-                    <li class="nav-item"><a href="post.php" class="nav-link"><img src="<?php echo HOME_URL; ?>Views/img/icon-post-tweet-twitterblue.svg" alt="" class="post-tweet"></a></li>
-                    <li class="nav-item my-icon"><img src="<?php echo HOME_URL; ?>Views/img/kyousyu.png" alt="" class="js-popover" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-html="true" data-bs-content="<a href='profile.php'>プロフィール</a><br><a href='sign-out.php'>ログアウト</a>"></li>
+                    <li class="nav-item"><a href="search.php" class="nav-link"><img src="Views/img/icon-search.svg" alt=""></a></li>
+                    <li class="nav-item"><a href="notification.php" class="nav-link"><img src="Views/img/icon-notification.svg" alt=""></a></li>
+                    <li class="nav-item"><a href="profile.php" class="nav-link"><img src="Views/img/icon-profile.svg" alt=""></a></li>
+                    <li class="nav-item"><a href="post.php" class="nav-link"><img src="Views/img/icon-post-tweet-twitterblue.svg" alt="" class="post-tweet"></a></li>
+                    <li class="nav-item my-icon"><img src="Views/img/kyousyu.png" alt="" class="js-popover" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-html="true" data-bs-content="<a href='profile.php'>プロフィール</a><br><a href='sign-out.php'>ログアウト</a>"></li>
+                    <!-- php echo HOME_URL; を入れる場合　herokuだと映らないので消す　さくらVPSの場合等は< ? php echo HOME_URL　?>を入れないとダメ -->
                 </ul>
             </div>
         </div>
@@ -135,7 +136,7 @@ function convertToDayTimeAgo(string $datetime)
             <!-- つぶやき投稿エリア -->
             <div class="tweet-post">
                 <div class="my-icon">
-                    <img src="<?php echo HOME_URL; ?>Views/img/kyousyu.png" alt="">
+                    <img src="Views/img/kyousyu.png" alt="">
                 </div>
                 <div class="input-area">
                     <form action="post.php" method="post" enctype="multipart/form-data">
@@ -161,7 +162,7 @@ function convertToDayTimeAgo(string $datetime)
                         <div class="tweet">
                             <div class="user">
                                 <a href="profile.php?user_id=<?php echo $view_tweet['user_id']; ?>">
-                                    <img src="<?php echo HOME_URL; ?>Views/img_uploaded/tweet/<?php echo $view_tweet['user_image_name']; ?>" alt="">
+                                    <img src="Views/img_uploaded/tweet/<?php echo $view_tweet['user_image_name']; ?>" alt="">
                                 </a>
                             </div>
                             <div class="content">
@@ -174,7 +175,7 @@ function convertToDayTimeAgo(string $datetime)
                                 <p><?php echo $view_tweet['tweet_body'] ?></p>
 
                                 <?php if (isset($view_tweet['tweet_image_name'])) : ?>
-                                    <img src="<?php echo HOME_URL; ?>Views/img_uploaded/tweet/<?php echo $view_tweet['tweet_image_name']; ?>" alt="" class="post-image">
+                                    <img src="Views/img_uploaded/tweet/<?php echo $view_tweet['tweet_image_name']; ?>" alt="" class="post-image">
                                 <?php endif; ?>
 
 
